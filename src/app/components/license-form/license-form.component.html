@@ -1,5 +1,7 @@
-<form>
-    <label for="exampleFormControlTextarea1" class="form-label text-secondary">License key</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
-    <button type="submit" class="btn btn-primary mt-3 px-5">Update</button>
-</form>
+<section>
+    <form [formGroup]="licenseForm" >
+        <label for="exampleFormControlTextarea1" class="form-label text-secondary">License key</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
+        <button type="submit" class="btn btn-primary mt-3 px-5">Update</button>
+    </form>
+</section>
