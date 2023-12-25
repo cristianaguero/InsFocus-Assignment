@@ -1,18 +1,20 @@
 <section>
     <h2 class="fs-6">License information</h2>
 
-
+    @if (!data) {
+    <P class="fs-6 text-secondary">Please, enter a valid license key.</P>
+    } @else {
     <div class="row">
-        <div class="col-2">
+        <div class="col-3">
             <p class="mt-3 text-secondary">Company name: </p>
             <p class="mt-3 text-secondary">Expiry date: </p>
             <p class="mt-3 text-secondary">Extensions: </p>
-            
+
         </div>
         <div class="col-2">
-            <p class="mt-3 text-secondary">InsFocus </p>
-            <p class="mt-3 text-secondary">31/12/2024 </p>
-            <p class="mt-3 text-secondary">Workflows </p>
+            <p class="mt-3 text-dark">{{data.company}} </p>
+            <p class="mt-3 text-dark">{{data.expiry}} </p>
+            <p class="mt-3 text-dark">{{data.extensions}} </p>
         </div>
     </div>
     <div class="row">
@@ -22,21 +24,40 @@
         <div class="col-10">
             <div class="row">
                 <div class="border col-2">
-                    <p class="mt-3 text-secondary">Level </p>
-                    <p class="mt-3 text-secondary"> regular </p>
-                    <p class="mt-3 text-secondary"> full </p>
+                    <p class="mt-3 text-dark">Level </p>
                 </div>
-                <div class="border col-2">
-                    <p class="mt-3 text-secondary">Licensed users </p>
-                    <p class="mt-3 text-secondary">50 </p>
-                    <p class="mt-3 text-secondary">50 </p>
+                <div class="border col-3">
+                    <p class="mt-3 text-dark">Licensed users </p>
                 </div>
-                <div class="border col-2">
-                    <p class="mt-3 text-secondary">Registered users </p>
-                    <p class="mt-3 text-secondary">14</p>
-                    <p class="mt-3 text-secondary">12 </p>
+                <div class="border col-3">
+                    <p class="mt-3 text-dark">Registered users </p>
                 </div>
             </div>
+
+            @for ( user of data.users; track $index ) {
+            <div class="row">
+                <div class="border col-2">
+                    <p class="mt-3 text-dark">
+                        {{user.Level}}
+                    </p>
+                </div>
+                <div class="border col-3">
+                    <p class="mt-3 text-dark">
+                        {{user.License}}
+                    </p>
+                </div>
+                <div class="border col-3">
+                    <p class="mt-3 text-dark">
+                        {{user.Registered}}
+                    </p>
+                </div>
+            </div>
+            }
+
         </div>
     </div>
+
+    }
+
+
 </section>

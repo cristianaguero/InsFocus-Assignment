@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-license-info',
@@ -7,6 +8,17 @@ import { Component } from '@angular/core';
   templateUrl: './license-info.component.html',
   styleUrl: './license-info.component.css'
 })
-export class LicenseInfoComponent {
+export class LicenseInfoComponent implements OnInit {
+
+  data: any;
+
+  constructor( private _dataService: DataService) {
+    
+  }
+
+  ngOnInit() {
+    this._dataService.currentLicenseData.subscribe(data => this.data = data);
+  }
+
 
 }

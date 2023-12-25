@@ -7,10 +7,13 @@ import { environment } from '../../environments/environment';
 })
 export class LicenseService {
 
-  constructor(private http: HttpClient ) { }
-
-  getLicenses() {
-    return this.http.get(environment.baseUrl);
+  constructor(private http: HttpClient) {
   }
+
+  getLicense(key: string) {
+    return this.http.get(`${environment.baseUrl}/licenses/${key}`);
+  }
+
+
 
 }
